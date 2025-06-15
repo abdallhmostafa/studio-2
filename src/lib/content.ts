@@ -52,7 +52,7 @@ export const content = {
     description: "A passionate Flutter developer with a keen eye for UI/UX design. I thrive on turning complex problems into elegant, user-friendly mobile applications. My journey in tech is driven by continuous learning and a desire to build impactful products.",
     paragraphs: [
       "With several years of experience in mobile development, I have a strong foundation in Dart and the Flutter framework, enabling me to build cross-platform applications efficiently.",
-      "I believe in a collaborative approach, working closely with clients and teams to understand requirements and deliver solutions that exceed expectations.",
+      "I believe in a collsaborative approach, working closely with clients and teams to understand requirements and deliver solutions that exceed expectations.",
       "My goal is to not only write code but to create experiences that users love. I'm always eager to take on new challenges and explore innovative technologies.",
       "When I'm not coding, you can find me exploring new design trends, contributing to open-source projects, or enjoying a good cup of coffee."
     ],
