@@ -4,21 +4,19 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Download } from "lucide-react";
-import type { Locale } from "@/lib/i18n-config";
 import { content as staticContent } from "@/lib/content";
-import { TranslateClient } from "../translate-client";
 
-export function ContactSection({ locale }: { locale: Locale }) {
-  const cvPath = "/cv.pdf"; // Assuming CV is in public folder
+export function ContactSection() {
+  const cvPath = "/cv.pdf"; 
 
   return (
     <section id="contact" className="bg-card py-16 px-4">
       <div className="container mx-auto text-center">
         <h2 className="font-headline text-4xl md:text-5xl font-bold mb-6">
-          <TranslateClient text={staticContent.contact.title} targetLanguage={locale} />
+          {staticContent.contact.title}
         </h2>
         <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
-          <TranslateClient text={staticContent.contact.description} targetLanguage={locale} placeholderLines={2}/>
+          {staticContent.contact.description}
         </p>
         <div className="flex justify-center flex-wrap gap-4 mb-10">
           <Button variant="outline" size="lg" asChild className="hover:border-primary hover:text-primary">
@@ -44,7 +42,7 @@ export function ContactSection({ locale }: { locale: Locale }) {
           <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
             <Link href={cvPath} target="_blank" download="AlexJohnson_CV.pdf">
               <Download className="mr-2 h-5 w-5" />
-              <TranslateClient text={staticContent.contact.cvButton} targetLanguage={locale} />
+              {staticContent.contact.cvButton}
             </Link>
           </Button>
         </div>

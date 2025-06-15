@@ -1,2 +1,3 @@
-// This file is deprecated. Content is now managed in src/lib/content.ts
-// Please remove this file or its content.
+// This file is no longer used as internationalization has been removed
+// and content is managed in src/lib/content.ts.
+// You can safely delete this file.

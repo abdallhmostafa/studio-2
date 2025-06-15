@@ -4,13 +4,10 @@
 import { useState, useMemo } from "react";
 import { ProjectCard } from "@/components/project-card";
 import { Button } from "@/components/ui/button";
-import type { Project } from "@/lib/content";
-import type { Locale } from "@/lib/i18n-config";
 import { content as staticContent } from "@/lib/content";
-import { TranslateClient } from "../translate-client";
 import { Filter } from "lucide-react";
 
-export function ProjectsGallery({ locale }: { locale: Locale }) {
+export function ProjectsGallery() {
   const projects = staticContent.projects.items;
   const [selectedTech, setSelectedTech] = useState<string | null>(null);
 
@@ -34,7 +31,7 @@ export function ProjectsGallery({ locale }: { locale: Locale }) {
   return (
     <section id="projects" className="container mx-auto py-16 px-4">
       <h2 className="font-headline text-4xl md:text-5xl font-bold text-center mb-12">
-        <TranslateClient text={staticContent.projects.title} targetLanguage={locale} />
+        {staticContent.projects.title}
       </h2>
       
       <div className="flex flex-wrap justify-center gap-2 mb-10 items-center">
@@ -46,7 +43,7 @@ export function ProjectsGallery({ locale }: { locale: Locale }) {
           className="filter-button"
           data-active={!selectedTech}
         >
-          <TranslateClient text={staticContent.projects.filterAll} targetLanguage={locale} />
+          {staticContent.projects.filterAll}
         </Button>
         {allTechStacks.map((tech) => (
           <Button
@@ -65,12 +62,12 @@ export function ProjectsGallery({ locale }: { locale: Locale }) {
       {filteredProjects.length > 0 ? (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} locale={locale} />
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
       ) : (
         <p className="text-center text-muted-foreground text-lg">
-          <TranslateClient text={"No projects found for the selected filter."} targetLanguage={locale} />
+          {"No projects found for the selected filter."}
         </p>
       )}
     </section>

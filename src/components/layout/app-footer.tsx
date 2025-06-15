@@ -4,11 +4,9 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Download } from "lucide-react";
-import type { Locale } from "@/lib/i18n-config";
 import { content as staticContent } from "@/lib/content";
-import { TranslateClient } from "../translate-client";
 
-export function AppFooter({ locale }: { locale: Locale }) {
+export function AppFooter() {
   const currentYear = new Date().getFullYear();
   const cvPath = "/cv.pdf"; // Assuming CV is in public folder
 
@@ -36,15 +34,12 @@ export function AppFooter({ locale }: { locale: Locale }) {
           <Button variant="outline" asChild className="hover:bg-accent hover:text-accent-foreground">
             <Link href={cvPath} target="_blank" download="AlexJohnson_CV.pdf">
               <Download className="mr-2 h-4 w-4" />
-              <TranslateClient text={staticContent.contact.cvButton} targetLanguage={locale} />
+              {staticContent.contact.cvButton}
             </Link>
           </Button>
         </div>
         <p className="text-sm text-muted-foreground">
-          <TranslateClient 
-            text={staticContent.footer.copy.replace("{year}", currentYear.toString())} 
-            targetLanguage={locale} 
-          />
+          {staticContent.footer.copy.replace("{year}", currentYear.toString())}
         </p>
       </div>
     </footer>

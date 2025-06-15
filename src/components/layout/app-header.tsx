@@ -2,19 +2,15 @@
 "use client";
 
 import Link from "next/link";
-import { LanguageSwitcher } from "@/components/language-switcher";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Code2 } from "lucide-react";
-import { usePathname } from "next/navigation";
-import type { Locale } from "@/lib/i18n-config";
 import { content as staticContent } from "@/lib/content";
-import { TranslateClient } from "../translate-client";
 import { useEffect, useState } from "react";
 
 const navLinks = [
   { href: "#hero", labelKey: "home" },
-  { href: "#about", labelKey: "about" }, // Added About link
+  { href: "#about", labelKey: "about" },
   { href: "#projects", labelKey: "projects" },
   { href: "#skills", labelKey: "skills" },
   { href: "#testimonials", labelKey: "testimonials" },
@@ -22,17 +18,16 @@ const navLinks = [
 ] as const;
 
 
-export function AppHeader({ locale }: { locale: Locale }) {
-  const pathname = usePathname();
+export function AppHeader() {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
       let currentSection = '';
-      // Ensure sections exist before trying to access offsetTop
       for (const link of navLinks) {
-        const section = document.getElementById(link.href.substring(1));
+        const sectionId = link.href.substring(1); // Remove #
+        const section = document.getElementById(sectionId);
         if (section && section.offsetTop <= window.scrollY + 100) { 
           currentSection = link.href;
         }
@@ -52,12 +47,12 @@ export function AppHeader({ locale }: { locale: Locale }) {
         variant="ghost"
         asChild
         className={`font-headline text-lg hover:text-primary transition-colors ${
-          activeSection === link.href ? 'text-primary font-semibold' : '' // Added font-semibold for active
+          activeSection === link.href ? 'text-primary font-semibold' : ''
         } ${isMobile ? 'w-full justify-start py-4 text-xl' : ''}`}
         onClick={() => isMobile && setIsSheetOpen(false)}
       >
-        <Link href={`/${locale}${link.href}`}> {/* Ensure locale is prefixed for client-side nav */}
-          <TranslateClient text={staticContent.nav[link.labelKey as keyof typeof staticContent.nav]} targetLanguage={locale} />
+        <Link href={link.href}> 
+          {staticContent.nav[link.labelKey as keyof typeof staticContent.nav]}
         </Link>
       </Button>
     ))
@@ -66,19 +61,19 @@ export function AppHeader({ locale }: { locale: Locale }) {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
-        <Link href={`/${locale}#hero`} className="flex items-center space-x-2">
+        <Link href="#hero" className="flex items-center space-x-2">
           <Code2 className="h-6 w-6 text-primary" />
           <span className="font-headline text-xl font-bold">
-            <TranslateClient text={staticContent.hero.name.split(' ')[0]} targetLanguage={locale} /> 
+            {staticContent.hero.name.split(' ')[0]} 
           </span>
         </Link>
 
-        <nav className="hidden md:flex items-center space-x-1"> {/* Reduced space for more items */}
+        <nav className="hidden md:flex items-center space-x-1">
           <NavItems />
         </nav>
         
         <div className="flex items-center space-x-2">
-          <LanguageSwitcher />
+          {/* LanguageSwitcher removed */}
           <div className="md:hidden">
             <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
               <SheetTrigger asChild>

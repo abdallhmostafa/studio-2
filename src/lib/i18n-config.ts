@@ -1,6 +1,2 @@
-export const i18n = {
-  defaultLocale: 'en',
-  locales: ['en', 'es', 'fr', 'de'], // English, Spanish, French, German
-} as const;
-
-export type Locale = (typeof i18n)['locales'][number];
+// This file is no longer used as internationalization has been removed.
+// You can safely delete this file.

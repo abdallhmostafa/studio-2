@@ -4,8 +4,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import type { Skill } from "@/lib/content";
-import type { Locale } from "@/lib/i18n-config";
-import { TranslateClient } from "./translate-client";
 import { 
   Smartphone, 
   TabletSmartphone, 
@@ -22,7 +20,6 @@ import React from "react";
 
 interface SkillCardProps {
   skill: Skill;
-  locale: Locale;
 }
 
 const iconMap: Record<string, React.ElementType<LucideProps>> = {
@@ -37,8 +34,8 @@ const iconMap: Record<string, React.ElementType<LucideProps>> = {
   ClipboardList,
 };
 
-export function SkillCard({ skill, locale }: SkillCardProps) {
-  const IconComponent = iconMap[skill.icon] || Smartphone; // Fallback to a default icon
+export function SkillCard({ skill }: SkillCardProps) {
+  const IconComponent = iconMap[skill.icon] || Smartphone; 
 
   return (
     <Card className="shadow-md hover:shadow-primary/10 transition-shadow duration-300">
@@ -46,7 +43,7 @@ export function SkillCard({ skill, locale }: SkillCardProps) {
         <div className="flex items-center space-x-3">
           <IconComponent className="h-6 w-6 text-primary" />
           <CardTitle className="text-lg font-medium">
-            <TranslateClient text={skill.name} targetLanguage={locale} />
+            {skill.name}
           </CardTitle>
         </div>
       </CardHeader>

@@ -6,21 +6,18 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Quote } from "lucide-react";
 import type { Testimonial } from "@/lib/content";
-import type { Locale } from "@/lib/i18n-config";
-import { TranslateClient } from "./translate-client";
 
 interface TestimonialCardProps {
   testimonial: Testimonial;
-  locale: Locale;
 }
 
-export function TestimonialCard({ testimonial, locale }: TestimonialCardProps) {
+export function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
     <Card className="h-full flex flex-col justify-between p-6 shadow-lg hover:shadow-primary/20 transition-shadow duration-300">
       <CardContent className="pt-6">
         <Quote className="h-8 w-8 text-primary mb-4" />
         <blockquote className="text-lg italic text-foreground mb-6 leading-relaxed">
-          <TranslateClient text={testimonial.quote} targetLanguage={locale} placeholderLines={4}/>
+          {testimonial.quote}
         </blockquote>
         <div className="flex items-center">
           {testimonial.avatarUrl && (
@@ -31,10 +28,10 @@ export function TestimonialCard({ testimonial, locale }: TestimonialCardProps) {
           )}
           <div>
             <p className="font-semibold font-headline text-primary">
-              <TranslateClient text={testimonial.name} targetLanguage={locale} />
+              {testimonial.name}
             </p>
             <p className="text-sm text-muted-foreground">
-              <TranslateClient text={testimonial.role} targetLanguage={locale} />
+              {testimonial.role}
             </p>
           </div>
         </div>
