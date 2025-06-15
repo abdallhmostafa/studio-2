@@ -99,11 +99,13 @@ export const content = {
           "A social platform for users to share and discover new recipes. Implemented with a clean UI and real-time updates.",
         techStack: ["Flutter", "Dart", "Node.js", "MongoDB", "Riverpod"],
         imageUrls: [
-            "/projects_images/pm-1/NewTux.png",
-            "https://placehold.co/600x400.png",
+            "/images/projects/project-3/screen1.png", // Assuming local path as per previous discussion
+            "/images/projects/project-3/screen2.png",
+            "/images/projects/project-3/screen3.png",
+            "https://placehold.co/600x400.png", // Replaced Unsplash URL
             "https://placehold.co/600x400.png"
         ], 
-        imageHints: ["food recipe", "cooking interface", "user profile"], 
+        imageHints: ["food recipe", "cooking interface", "user profile", "app screenshot", "placeholder image"], 
         liveUrl: "#",
       },
     ] as Project[],
