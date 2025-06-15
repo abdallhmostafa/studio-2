@@ -12,11 +12,10 @@ export interface Project {
   title: string;
   description: string;
   techStack: string[];
-  imageUrls: string[]; // Changed from imageUrl
-  imageHints: string[]; // Changed from imageHint
+  imageUrls: string[]; 
+  imageHints: string[]; 
   liveUrl?: string;
   repoUrl?: string;
-  mediaEmbed?: string; // YouTube video ID or full embed code
 }
 
 export interface Testimonial {
@@ -31,7 +30,7 @@ export interface Testimonial {
 export const content = {
   nav: {
     home: "Home",
-    about: "About", // Added About link
+    about: "About", 
     projects: "Projects",
     skills: "Skills",
     testimonials: "Testimonials",
@@ -43,10 +42,10 @@ export const content = {
     introduction:
       "Crafting seamless mobile experiences with Flutter. I specialize in building high-performance, visually appealing applications from concept to deployment. Let's create something amazing together.",
     cta: "View My Work",
-    imageUrl: "https://placehold.co/500x500.png", // Added Hero image
+    imageUrl: "https://placehold.co/500x500.png", 
     imageHint: "developer portrait",
   },
-  about: { // Added About section content
+  about: { 
     title: "About Me",
     greeting: "Hello, I'm Abdallh!",
     description: "A passionate Flutter developer with a keen eye for UI/UX design. I thrive on turning complex problems into elegant, user-friendly mobile applications. My journey in tech is driven by continuous learning and a desire to build impactful products.",
@@ -72,9 +71,12 @@ export const content = {
         description:
           "A full-featured e-commerce mobile application built with Flutter and Firebase. Includes product listings, cart, checkout, and user authentication.",
         techStack: ["Flutter", "Dart", "Firebase", "Bloc"],
-        imageUrls: ["/images/projects/project-1/shopsphere-main.png"], // Updated to local path and array
-        imageHints: ["mobile commerce"], // Updated to array
-        mediaEmbed: "dQw4w9WgXcQ", 
+        imageUrls: [
+            "https://placehold.co/600x400.png", 
+            "https://placehold.co/600x400.png",
+            "https://placehold.co/600x400.png"
+        ], 
+        imageHints: ["mobile commerce", "shopping cart", "product page"], 
         liveUrl: "#",
         repoUrl: "#",
       },
@@ -84,18 +86,24 @@ export const content = {
         description:
           "A comprehensive fitness tracking app allowing users to monitor workouts, nutrition, and progress. Features custom workout plans and progress charts.",
         techStack: ["Flutter", "Dart", "SQLite", "Provider"],
-        imageUrls: ["/images/projects/project-2/fitflow-dashboard.png"], // Updated to local path and array
-        imageHints: ["fitness app"], // Updated to array
-        mediaEmbed: "L_LUpnjgPso",
+        imageUrls: [
+            "https://placehold.co/600x400.png",
+            "https://placehold.co/600x400.png"
+        ], 
+        imageHints: ["fitness app", "dashboard chart"], 
       },
       {
         id: "project-3",
-        title: "Recipe Finder 'CulinaryConnect'", // Restored original title for consistency, user can change if needed
+        title: "Test Test Test", 
         description:
           "A social platform for users to share and discover new recipes. Implemented with a clean UI and real-time updates.",
         techStack: ["Flutter", "Dart", "Node.js", "MongoDB", "Riverpod"],
-        imageUrls: ["/images/projects/project-3/recipe-app-ui.png"], // Updated to local path and array
-        imageHints: ["food recipe"], // Updated to array
+        imageUrls: [
+            "/projects_images/pm-1/NewTux.png",
+            "https://placehold.co/600x400.png",
+            "https://placehold.co/600x400.png"
+        ], 
+        imageHints: ["food recipe", "cooking interface", "user profile"], 
         liveUrl: "#",
       },
     ] as Project[],
@@ -103,7 +111,7 @@ export const content = {
   skills: {
     title: "Technical Skills",
     categories: {
-      Frontend: "Flutter & Frontend", // Adjusted for clarity
+      Frontend: "Flutter & Frontend", 
       Backend: "Backend",
       Tools: "Tools & Platforms",
     },
@@ -125,7 +133,7 @@ export const content = {
       {
         id: "testimonial-1",
         quote:
-          "Abdallh is a highly skilled Flutter developer. His attention to detail and commitment to quality are outstanding. He delivered an exceptional product on time.", // Changed name to Abdallh
+          "Abdallh is a highly skilled Flutter developer. His attention to detail and commitment to quality are outstanding. He delivered an exceptional product on time.", 
         name: "Jane Doe",
         role: "Project Manager, Tech Solutions Inc.",
         avatarUrl: "https://placehold.co/100x100.png",
@@ -134,7 +142,7 @@ export const content = {
       {
         id: "testimonial-2",
         quote:
-          "Working with Abdallh was a pleasure. He has a deep understanding of mobile development and a knack for creating intuitive user interfaces.", // Changed name to Abdallh
+          "Working with Abdallh was a pleasure. He has a deep understanding of mobile development and a knack for creating intuitive user interfaces.", 
         name: "John Smith",
         role: "CEO, Innovatech Ltd.",
         avatarUrl: "https://placehold.co/100x100.png",
@@ -149,6 +157,6 @@ export const content = {
     cvButton: "Download CV",
   },
   footer: {
-    copy: "© {year} Abdallh Mostafa. All rights reserved.", // Changed name to Abdallh
+    copy: "© {year} Abdallh Mostafa. All rights reserved.", 
   },
 };

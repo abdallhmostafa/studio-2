@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, Youtube } from "lucide-react";
+import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
 import type { Project } from "@/lib/content";
 import type { Locale } from "@/lib/i18n-config";
 import { content as staticContent } from "@/lib/content";
@@ -19,9 +19,27 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, locale }: ProjectCardProps) {
-  const [showVideo, setShowVideo] = useState(false);
-  const displayImageUrl = project.imageUrls && project.imageUrls.length > 0 ? project.imageUrls[0] : "https://placehold.co/600x400.png";
-  const displayImageHint = project.imageHints && project.imageHints.length > 0 ? project.imageHints[0] : "project image";
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const hasMultipleImages = project.imageUrls && project.imageUrls.length > 1;
+  const displayImageUrl = project.imageUrls && project.imageUrls.length > 0 
+    ? project.imageUrls[currentImageIndex] 
+    : "https://placehold.co/600x400.png";
+  const displayImageHint = project.imageHints && project.imageHints.length > 0 
+    ? project.imageHints[currentImageIndex] 
+    : "project image";
+
+  const handlePrevImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? project.imageUrls.length - 1 : prevIndex - 1
+    );
+  };
+
+  const handleNextImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === project.imageUrls.length - 1 ? 0 : prevIndex + 1
+    );
+  };
 
   return (
     <Card className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-primary/20 transition-shadow duration-300 group">
@@ -32,40 +50,39 @@ export function ProjectCard({ project, locale }: ProjectCardProps) {
       </CardHeader>
       <CardContent className="flex-grow">
         <div className="relative aspect-video mb-4 rounded-md overflow-hidden">
-          {!showVideo && (
+          <Image
+            src={displayImageUrl}
+            alt={`${project.title} - image ${currentImageIndex + 1}`}
+            layout="fill"
+            objectFit="cover"
+            data-ai-hint={displayImageHint}
+            className="transition-transform duration-300 group-hover:scale-105"
+            key={currentImageIndex} // Add key to force re-render on image change for transitions
+          />
+          {hasMultipleImages && (
             <>
-              <Image
-                src={displayImageUrl}
-                alt={project.title} // Alt text remains project title for main image
-                layout="fill"
-                objectFit="cover"
-                data-ai-hint={displayImageHint}
-                className="transition-transform duration-300 group-hover:scale-105"
-              />
-              {project.mediaEmbed && (
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  className="absolute inset-0 m-auto bg-black/50 hover:bg-black/70 text-white"
-                  onClick={() => setShowVideo(true)}
-                  aria-label="Play video"
-                >
-                  <Youtube className="h-12 w-12" />
-                </Button>
-              )}
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white"
+                onClick={handlePrevImage}
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white"
+                onClick={handleNextImage}
+                aria-label="Next image"
+              >
+                <ChevronRight className="h-6 w-6" />
+              </Button>
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-black/50 text-white text-xs px-2 py-1 rounded-full">
+                {currentImageIndex + 1} / {project.imageUrls.length}
+              </div>
             </>
-          )}
-          {showVideo && project.mediaEmbed && (
-            <iframe
-              width="100%"
-              height="100%"
-              src={`https://www.youtube.com/embed/${project.mediaEmbed}?autoplay=1`}
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="aspect-video"
-            ></iframe>
           )}
         </div>
         
