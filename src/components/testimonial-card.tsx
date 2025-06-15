@@ -1,10 +1,11 @@
+
 "use client";
 
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Quote } from "lucide-react";
-import type { Testimonial } from "@/dictionaries/content";
+import type { Testimonial } from "@/lib/content";
 import type { Locale } from "@/lib/i18n-config";
 import { TranslateClient } from "./translate-client";
 

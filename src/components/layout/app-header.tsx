@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -7,7 +8,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Code2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import type { Locale } from "@/lib/i18n-config";
-import { content as staticContent } from "@/dictionaries/content";
+import { content as staticContent } from "@/lib/content";
 import { TranslateClient } from "../translate-client";
 import { useEffect, useState } from "react";
 

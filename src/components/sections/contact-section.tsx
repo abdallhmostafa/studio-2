@@ -1,10 +1,11 @@
+
 "use client";
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Download } from "lucide-react";
 import type { Locale } from "@/lib/i18n-config";
-import { content as staticContent } from "@/dictionaries/content";
+import { content as staticContent } from "@/lib/content";
 import { TranslateClient } from "../translate-client";
 
 export function ContactSection({ locale }: { locale: Locale }) {

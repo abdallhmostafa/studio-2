@@ -1,8 +1,9 @@
+
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import type { Skill } from "@/dictionaries/content";
+import type { Skill } from "@/lib/content";
 import type { Locale } from "@/lib/i18n-config";
 import { TranslateClient } from "./translate-client";
 

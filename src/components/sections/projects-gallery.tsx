@@ -1,11 +1,12 @@
+
 "use client";
 
 import { useState, useMemo } from "react";
 import { ProjectCard } from "@/components/project-card";
 import { Button } from "@/components/ui/button";
-import type { Project } from "@/dictionaries/content";
+import type { Project } from "@/lib/content";
 import type { Locale } from "@/lib/i18n-config";
-import { content as staticContent } from "@/dictionaries/content";
+import { content as staticContent } from "@/lib/content";
 import { TranslateClient } from "../translate-client";
 import { Filter } from "lucide-react";
 

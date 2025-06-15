@@ -1,9 +1,10 @@
+
 "use client";
 
 import { SkillCard } from "@/components/skill-card";
-import type { Skill, SkillCategory } from "@/dictionaries/content";
+import type { Skill, SkillCategory } from "@/lib/content";
 import type { Locale } from "@/lib/i18n-config";
-import { content as staticContent } from "@/dictionaries/content";
+import { content as staticContent } from "@/lib/content";
 import { TranslateClient } from "../translate-client";
 import { Code, Server, Wrench } from "lucide-react"; // Using Wrench for Tools
 

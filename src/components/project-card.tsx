@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -6,9 +7,9 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github, Youtube } from "lucide-react";
-import type { Project } from "@/dictionaries/content";
+import type { Project } from "@/lib/content";
 import type { Locale } from "@/lib/i18n-config";
-import { content as staticContent } from "@/dictionaries/content";
+import { content as staticContent } from "@/lib/content";
 import { TranslateClient } from "./translate-client";
 import { useState } from "react";
 

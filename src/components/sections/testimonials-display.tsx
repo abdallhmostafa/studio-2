@@ -1,8 +1,9 @@
+
 "use client";
 
 import { TestimonialCard } from "@/components/testimonial-card";
 import type { Locale } from "@/lib/i18n-config";
-import { content as staticContent } from "@/dictionaries/content";
+import { content as staticContent } from "@/lib/content";
 import { TranslateClient } from "../translate-client";
 
 export function TestimonialsDisplay({ locale }: { locale: Locale }) {
