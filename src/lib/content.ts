@@ -42,7 +42,7 @@ export const content = {
     introduction:
       "Crafting seamless mobile experiences with Flutter. I specialize in building high-performance, visually appealing applications from concept to deployment. Let's create something amazing together.",
     cta: "View My Work",
-    imageUrl: "https://placehold.co/500x500.png", 
+    imageUrl: "/1.JPG", 
     imageHint: "developer portrait",
   },
   about: { 
@@ -97,16 +97,14 @@ export const content = {
         title: "Test Test Test", 
         description:
           "A social platform for users to share and discover new recipes. Implemented with a clean UI and real-time updates.",
-        techStack: ["Flutter", "Dart", "Node.js", "MongoDB", "Riverpod"],
+        techStack: ["Flutter", "Dart", "Node.js", "MongoDB", "Riverpod","Riverpod","Riverpod","Riverpod"],
         imageUrls: [
-            "/images/projects/project-3/screen1.png", // Assuming local path as per previous discussion
-            "/images/projects/project-3/screen2.png",
-            "/images/projects/project-3/screen3.png",
-            "https://placehold.co/600x400.png", // Replaced Unsplash URL
-            "https://placehold.co/600x400.png"
+            "/projects_images/pm-1/NewTux.png", // Assuming local path as per previous discussion
+            "/projects_images/pm-1/NewTux.png", // Assuming local path as per previous discussion
+            "https://images.unsplash.com/photo-1744137285276-57ca4048f805?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ], 
         imageHints: ["food recipe", "cooking interface", "user profile", "app screenshot", "placeholder image"], 
-        liveUrl: "#",
+        liveUrl: "https://www.google.co.uk/",
       },
     ] as Project[],
   },
