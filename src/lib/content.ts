@@ -5,6 +5,7 @@ export interface Skill {
   name: string;
   level: number; // 0-100
   category: SkillCategory;
+  icon: string; // Lucide icon name
 }
 
 export interface Project {
@@ -42,7 +43,7 @@ export const content = {
     introduction:
       "Crafting seamless mobile experiences with Flutter. I specialize in building high-performance, visually appealing applications from concept to deployment. Let's create something amazing together.",
     cta: "View My Work",
-    imageUrl: "/1.JPG", 
+    imageUrl: "/images/hero-portrait.jpg", 
     imageHint: "developer portrait",
   },
   about: { 
@@ -55,7 +56,7 @@ export const content = {
       "My goal is to not only write code but to create experiences that users love. I'm always eager to take on new challenges and explore innovative technologies.",
       "When I'm not coding, you can find me exploring new design trends, contributing to open-source projects, or enjoying a good cup of coffee."
     ],
-    imageUrl: "https://placehold.co/600x400.png",
+    imageUrl: "/images/about-coding.jpg",
     imageHint: "coding laptop",
   },
   projects: {
@@ -72,9 +73,9 @@ export const content = {
           "A full-featured e-commerce mobile application built with Flutter and Firebase. Includes product listings, cart, checkout, and user authentication.",
         techStack: ["Flutter", "Dart", "Firebase", "Bloc"],
         imageUrls: [
-            "https://placehold.co/600x400.png", 
-            "https://placehold.co/600x400.png",
-            "https://placehold.co/600x400.png"
+            "/images/projects/project-1/shopsphere-1.png", 
+            "/images/projects/project-1/shopsphere-2.png",
+            "/images/projects/project-1/shopsphere-3.png"
         ], 
         imageHints: ["mobile commerce", "shopping cart", "product page"], 
         liveUrl: "#",
@@ -87,24 +88,24 @@ export const content = {
           "A comprehensive fitness tracking app allowing users to monitor workouts, nutrition, and progress. Features custom workout plans and progress charts.",
         techStack: ["Flutter", "Dart", "SQLite", "Provider"],
         imageUrls: [
-            "https://placehold.co/600x400.png",
-            "https://placehold.co/600x400.png"
+            "/images/projects/project-2/fitflow-1.png",
+            "/images/projects/project-2/fitflow-2.png"
         ], 
         imageHints: ["fitness app", "dashboard chart"], 
       },
       {
         id: "project-3",
-        title: "Test Test Test", 
+        title: "Recipe Sharing App 'CulinaryConnect'",
         description:
-          "A social platform for users to share and discover new recipes. Implemented with a clean UI and real-time updates.",
-        techStack: ["Flutter", "Dart", "Node.js", "MongoDB", "Riverpod","Riverpod","Riverpod","Riverpod"],
+          "A social platform for users to share and discover new recipes. Implemented with a clean UI and real-time updates using Flutter and a Node.js backend.",
+        techStack: ["Flutter", "Dart", "Node.js", "MongoDB", "Riverpod"],
         imageUrls: [
-            "/projects_images/pm-1/NewTux.png", // Assuming local path as per previous discussion
-            "/projects_images/pm-1/NewTux.png", // Assuming local path as per previous discussion
-            "https://images.unsplash.com/photo-1744137285276-57ca4048f805?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            "https://placehold.co/600x400.png",
+            "https://placehold.co/600x400.png",
+            "https://placehold.co/600x400.png"
         ], 
-        imageHints: ["food recipe", "cooking interface", "user profile", "app screenshot", "placeholder image"], 
-        liveUrl: "https://www.google.co.uk/",
+        imageHints: ["food recipe", "cooking interface", "user profile"], 
+        liveUrl: "#",
       },
     ] as Project[],
   },
@@ -116,15 +117,15 @@ export const content = {
       Tools: "Tools & Platforms",
     },
     items: [
-      { name: "Flutter & Dart", level: 95, category: "Frontend" },
-      { name: "React Native", level: 75, category: "Frontend" },
-      { name: "UI/UX Design", level: 85, category: "Frontend" },
-      { name: "Firebase", level: 90, category: "Backend" },
-      { name: "Node.js", level: 70, category: "Backend" },
-      { name: "REST APIs", level: 88, category: "Backend" },
-      { name: "Git & GitHub", level: 92, category: "Tools" },
-      { name: "Docker", level: 65, category: "Tools" },
-      { name: "Jira", level: 80, category: "Tools" },
+      { name: "Flutter & Dart", level: 95, category: "Frontend", icon: "Smartphone" },
+      { name: "React Native", level: 75, category: "Frontend", icon: "TabletSmartphone" },
+      { name: "UI/UX Design", level: 85, category: "Frontend", icon: "Palette" },
+      { name: "Firebase", level: 90, category: "Backend", icon: "Cloud" },
+      { name: "Node.js", level: 70, category: "Backend", icon: "Server" },
+      { name: "REST APIs", level: 88, category: "Backend", icon: "Network" },
+      { name: "Git & GitHub", level: 92, category: "Tools", icon: "GitFork" },
+      { name: "Docker", level: 65, category: "Tools", icon: "Container" },
+      { name: "Jira", level: 80, category: "Tools", icon: "ClipboardList" },
     ] as Skill[],
   },
   testimonials: {
