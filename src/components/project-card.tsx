@@ -19,11 +19,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const hasMultipleImages = project.imageUrls && project.imageUrls.length > 1;
-  const displayImageUrl = project.imageUrls && project.imageUrls.length > 0 
-    ? project.imageUrls[currentImageIndex] 
+  const displayImageUrl = project.imageUrls && project.imageUrls.length > 0
+    ? project.imageUrls[currentImageIndex]
     : "https://placehold.co/600x400.png";
-  const displayImageHint = project.imageHints && project.imageHints.length > 0 
-    ? project.imageHints[currentImageIndex] 
+  const displayImageHint = project.imageHints && project.imageHints.length > 0
+    ? project.imageHints[currentImageIndex]
     : "project image";
 
   const handlePrevImage = () => {
@@ -42,7 +42,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
     <Card className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-primary/20 transition-shadow duration-300 group">
       <CardHeader>
         <CardTitle className="font-headline text-2xl">
-           {project.title}
+          {project.title}
         </CardTitle>
       </CardHeader>
       <CardContent className="flex-grow">
@@ -54,7 +54,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
             objectFit="cover"
             data-ai-hint={displayImageHint}
             className="transition-transform duration-300 group-hover:scale-105"
-            key={currentImageIndex} 
+            key={currentImageIndex}
+            unoptimized
+
           />
           {hasMultipleImages && (
             <>
@@ -82,7 +84,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </>
           )}
         </div>
-        
+
         <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
           {project.description}
         </p>

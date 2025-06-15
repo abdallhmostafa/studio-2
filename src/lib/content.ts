@@ -43,7 +43,7 @@ export const content = {
     introduction:
       "Crafting seamless mobile experiences with Flutter. I specialize in building high-performance, visually appealing applications from concept to deployment. Let's create something amazing together.",
     cta: "View My Work",
-    imageUrl: "/images/hero-portrait.jpg", 
+    imageUrl: "/1.JPG", 
     imageHint: "developer portrait",
   },
   about: { 
@@ -56,7 +56,7 @@ export const content = {
       "My goal is to not only write code but to create experiences that users love. I'm always eager to take on new challenges and explore innovative technologies.",
       "When I'm not coding, you can find me exploring new design trends, contributing to open-source projects, or enjoying a good cup of coffee."
     ],
-    imageUrl: "/images/about-coding.jpg",
+    imageUrl: "/1.JPG",
     imageHint: "coding laptop",
   },
   projects: {
@@ -68,16 +68,22 @@ export const content = {
     items: [
       {
         id: "project-1",
-        title: "E-commerce App 'ShopSphere'",
+        title: "Test Test test this is TEst",
         description:
           "A full-featured e-commerce mobile application built with Flutter and Firebase. Includes product listings, cart, checkout, and user authentication.",
         techStack: ["Flutter", "Dart", "Firebase", "Bloc"],
         imageUrls: [
-            "/images/projects/project-1/shopsphere-1.png", 
-            "/images/projects/project-1/shopsphere-2.png",
-            "/images/projects/project-1/shopsphere-3.png"
-        ], 
-        imageHints: ["mobile commerce", "shopping cart", "product page"], 
+            "/projects_images/pm-1/NewTux.png",
+            "/projects_images/pm-1/NewTux.png",
+            "/projects_images/pm-1/NewTux.png",
+            "/projects_images/pm-1/NewTux.png",
+            "/projects_images/pm-1/NewTux.png",
+            "/projects_images/pm-1/NewTux.png",
+            "/projects_images/pm-1/NewTux.png",
+            "/projects_images/pm-1/NewTux.png",
+            "/projects_images/pm-1/NewTux.png",
+        ],
+        imageHints: ["mobile commerce", "shopping cart", "product page"],
         liveUrl: "#",
         repoUrl: "#",
       },

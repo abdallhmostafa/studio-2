@@ -35,6 +35,7 @@ export function AboutSection() {
               objectFit="cover"
               data-ai-hint={aboutContent.imageHint}
               className="rounded-lg"
+              unoptimized
             />
           )}
         </div>

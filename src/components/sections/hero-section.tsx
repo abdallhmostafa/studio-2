@@ -42,7 +42,8 @@ export function HeroSection() {
                 layout="fill"
                 objectFit="cover"
                 data-ai-hint={heroContent.imageHint}
-                priority 
+                priority
+                unoptimized
               />
             </div>
           )}
