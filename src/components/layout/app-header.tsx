@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 
 const navLinks = [
   { href: "#hero", labelKey: "home" },
+  { href: "#about", labelKey: "about" }, // Added About link
   { href: "#projects", labelKey: "projects" },
   { href: "#skills", labelKey: "skills" },
   { href: "#testimonials", labelKey: "testimonials" },
@@ -29,17 +30,18 @@ export function AppHeader({ locale }: { locale: Locale }) {
   useEffect(() => {
     const handleScroll = () => {
       let currentSection = '';
-      navLinks.forEach(link => {
+      // Ensure sections exist before trying to access offsetTop
+      for (const link of navLinks) {
         const section = document.getElementById(link.href.substring(1));
-        if (section && section.offsetTop <= window.scrollY + 100) { // Adjust offset as needed
+        if (section && section.offsetTop <= window.scrollY + 100) { 
           currentSection = link.href;
         }
-      });
+      }
       setActiveSection(currentSection);
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
+    handleScroll(); 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -50,12 +52,12 @@ export function AppHeader({ locale }: { locale: Locale }) {
         variant="ghost"
         asChild
         className={`font-headline text-lg hover:text-primary transition-colors ${
-          activeSection === link.href ? 'text-primary' : ''
+          activeSection === link.href ? 'text-primary font-semibold' : '' // Added font-semibold for active
         } ${isMobile ? 'w-full justify-start py-4 text-xl' : ''}`}
         onClick={() => isMobile && setIsSheetOpen(false)}
       >
-        <Link href={link.href}>
-          <TranslateClient text={staticContent.nav[link.labelKey]} targetLanguage={locale} />
+        <Link href={`/${locale}${link.href}`}> {/* Ensure locale is prefixed for client-side nav */}
+          <TranslateClient text={staticContent.nav[link.labelKey as keyof typeof staticContent.nav]} targetLanguage={locale} />
         </Link>
       </Button>
     ))
@@ -67,11 +69,11 @@ export function AppHeader({ locale }: { locale: Locale }) {
         <Link href={`/${locale}#hero`} className="flex items-center space-x-2">
           <Code2 className="h-6 w-6 text-primary" />
           <span className="font-headline text-xl font-bold">
-            <TranslateClient text={staticContent.hero.name.split(' ')[0]} targetLanguage={locale} />
+            <TranslateClient text={staticContent.hero.name.split(' ')[0]} targetLanguage={locale} /> 
           </span>
         </Link>
 
-        <nav className="hidden md:flex items-center space-x-2">
+        <nav className="hidden md:flex items-center space-x-1"> {/* Reduced space for more items */}
           <NavItems />
         </nav>
         

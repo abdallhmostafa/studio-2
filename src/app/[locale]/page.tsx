@@ -1,6 +1,8 @@
+
 import { AppHeader } from "@/components/layout/app-header";
 import { AppFooter } from "@/components/layout/app-footer";
 import { HeroSection } from "@/components/sections/hero-section";
+import { AboutSection } from "@/components/sections/about-section"; // Added import
 import { ProjectsGallery } from "@/components/sections/projects-gallery";
 import { SkillsShowcase } from "@/components/sections/skills-showcase";
 import { TestimonialsDisplay } from "@/components/sections/testimonials-display";
@@ -19,6 +21,7 @@ export default function HomePage({ params: { locale } }: HomePageProps) {
       <AppHeader locale={locale} />
       <main className="flex-grow">
         <HeroSection locale={locale} />
+        <AboutSection locale={locale} /> {/* Added AboutSection */}
         <ProjectsGallery locale={locale} />
         <SkillsShowcase locale={locale} />
         <TestimonialsDisplay locale={locale} />

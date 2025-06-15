@@ -12,8 +12,8 @@ export interface Project {
   title: string;
   description: string;
   techStack: string[];
-  imageUrl: string;
-  imageHint: string;
+  imageUrls: string[]; // Changed from imageUrl
+  imageHints: string[]; // Changed from imageHint
   liveUrl?: string;
   repoUrl?: string;
   mediaEmbed?: string; // YouTube video ID or full embed code
@@ -31,17 +31,33 @@ export interface Testimonial {
 export const content = {
   nav: {
     home: "Home",
+    about: "About", // Added About link
     projects: "Projects",
     skills: "Skills",
     testimonials: "Testimonials",
     contact: "Contact",
   },
   hero: {
-    name: "Alex Johnson",
+    name: "Abdallh Mostafa",
     role: "Flutter Developer & UI/UX Enthusiast",
     introduction:
       "Crafting seamless mobile experiences with Flutter. I specialize in building high-performance, visually appealing applications from concept to deployment. Let's create something amazing together.",
     cta: "View My Work",
+    imageUrl: "https://placehold.co/500x500.png", // Added Hero image
+    imageHint: "developer portrait",
+  },
+  about: { // Added About section content
+    title: "About Me",
+    greeting: "Hello, I'm Abdallh!",
+    description: "A passionate Flutter developer with a keen eye for UI/UX design. I thrive on turning complex problems into elegant, user-friendly mobile applications. My journey in tech is driven by continuous learning and a desire to build impactful products.",
+    paragraphs: [
+      "With several years of experience in mobile development, I have a strong foundation in Dart and the Flutter framework, enabling me to build cross-platform applications efficiently.",
+      "I believe in a collaborative approach, working closely with clients and teams to understand requirements and deliver solutions that exceed expectations.",
+      "My goal is to not only write code but to create experiences that users love. I'm always eager to take on new challenges and explore innovative technologies.",
+      "When I'm not coding, you can find me exploring new design trends, contributing to open-source projects, or enjoying a good cup of coffee."
+    ],
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "coding laptop",
   },
   projects: {
     title: "My Projects",
@@ -56,9 +72,9 @@ export const content = {
         description:
           "A full-featured e-commerce mobile application built with Flutter and Firebase. Includes product listings, cart, checkout, and user authentication.",
         techStack: ["Flutter", "Dart", "Firebase", "Bloc"],
-        imageUrl: "https://placehold.co/600x400.png",
-        imageHint: "mobile commerce",
-        mediaEmbed: "dQw4w9WgXcQ", // Placeholder YouTube ID
+        imageUrls: ["/images/projects/project-1/shopsphere-main.png"], // Updated to local path and array
+        imageHints: ["mobile commerce"], // Updated to array
+        mediaEmbed: "dQw4w9WgXcQ", 
         liveUrl: "#",
         repoUrl: "#",
       },
@@ -68,18 +84,18 @@ export const content = {
         description:
           "A comprehensive fitness tracking app allowing users to monitor workouts, nutrition, and progress. Features custom workout plans and progress charts.",
         techStack: ["Flutter", "Dart", "SQLite", "Provider"],
-        imageUrl: "https://placehold.co/600x400.png",
-        imageHint: "fitness app",
-        mediaEmbed: "L_LUpnjgPso", // Placeholder YouTube ID
+        imageUrls: ["/images/projects/project-2/fitflow-dashboard.png"], // Updated to local path and array
+        imageHints: ["fitness app"], // Updated to array
+        mediaEmbed: "L_LUpnjgPso",
       },
       {
         id: "project-3",
-        title: "Recipe Sharing Platform 'CookBook'",
+        title: "Recipe Finder 'CulinaryConnect'", // Restored original title for consistency, user can change if needed
         description:
           "A social platform for users to share and discover new recipes. Implemented with a clean UI and real-time updates.",
         techStack: ["Flutter", "Dart", "Node.js", "MongoDB", "Riverpod"],
-        imageUrl: "https://placehold.co/600x400.png",
-        imageHint: "food recipe",
+        imageUrls: ["/images/projects/project-3/recipe-app-ui.png"], // Updated to local path and array
+        imageHints: ["food recipe"], // Updated to array
         liveUrl: "#",
       },
     ] as Project[],
@@ -87,7 +103,7 @@ export const content = {
   skills: {
     title: "Technical Skills",
     categories: {
-      Frontend: "Frontend",
+      Frontend: "Flutter & Frontend", // Adjusted for clarity
       Backend: "Backend",
       Tools: "Tools & Platforms",
     },
@@ -109,7 +125,7 @@ export const content = {
       {
         id: "testimonial-1",
         quote:
-          "Alex is a highly skilled Flutter developer. His attention to detail and commitment to quality are outstanding. He delivered an exceptional product on time.",
+          "Abdallh is a highly skilled Flutter developer. His attention to detail and commitment to quality are outstanding. He delivered an exceptional product on time.", // Changed name to Abdallh
         name: "Jane Doe",
         role: "Project Manager, Tech Solutions Inc.",
         avatarUrl: "https://placehold.co/100x100.png",
@@ -118,7 +134,7 @@ export const content = {
       {
         id: "testimonial-2",
         quote:
-          "Working with Alex was a pleasure. He has a deep understanding of mobile development and a knack for creating intuitive user interfaces.",
+          "Working with Abdallh was a pleasure. He has a deep understanding of mobile development and a knack for creating intuitive user interfaces.", // Changed name to Abdallh
         name: "John Smith",
         role: "CEO, Innovatech Ltd.",
         avatarUrl: "https://placehold.co/100x100.png",
@@ -133,6 +149,6 @@ export const content = {
     cvButton: "Download CV",
   },
   footer: {
-    copy: "© {year} Alex Johnson. All rights reserved.",
+    copy: "© {year} Abdallh Mostafa. All rights reserved.", // Changed name to Abdallh
   },
 };

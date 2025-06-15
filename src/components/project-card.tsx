@@ -20,9 +20,11 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, locale }: ProjectCardProps) {
   const [showVideo, setShowVideo] = useState(false);
+  const displayImageUrl = project.imageUrls && project.imageUrls.length > 0 ? project.imageUrls[0] : "https://placehold.co/600x400.png";
+  const displayImageHint = project.imageHints && project.imageHints.length > 0 ? project.imageHints[0] : "project image";
 
   return (
-    <Card className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-primary/20 transition-shadow duration-300">
+    <Card className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-primary/20 transition-shadow duration-300 group">
       <CardHeader>
         <CardTitle className="font-headline text-2xl">
            <TranslateClient text={project.title} targetLanguage={locale} />
@@ -30,14 +32,14 @@ export function ProjectCard({ project, locale }: ProjectCardProps) {
       </CardHeader>
       <CardContent className="flex-grow">
         <div className="relative aspect-video mb-4 rounded-md overflow-hidden">
-          {!showVideo && project.imageUrl && (
+          {!showVideo && (
             <>
               <Image
-                src={project.imageUrl}
-                alt={project.title}
+                src={displayImageUrl}
+                alt={project.title} // Alt text remains project title for main image
                 layout="fill"
                 objectFit="cover"
-                data-ai-hint={project.imageHint}
+                data-ai-hint={displayImageHint}
                 className="transition-transform duration-300 group-hover:scale-105"
               />
               {project.mediaEmbed && (
